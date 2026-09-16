@@ -1,4 +1,4 @@
-package com.tyejaedon.aipriceoptimization.feature.dashboard
+﻿package com.tyejaedon.aipriceoptimization.feature.dashboard
 
 import com.tyejaedon.aipriceoptimization.core.common.AppResult
 import com.tyejaedon.aipriceoptimization.core.error.AppError
@@ -7,6 +7,7 @@ import com.tyejaedon.aipriceoptimization.domain.usecase.GetHealthStatusUseCase
 import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
@@ -18,6 +19,7 @@ import org.junit.Assert.assertNull
 import org.junit.Before
 import org.junit.Test
 
+@OptIn(ExperimentalCoroutinesApi::class)
 class DashboardViewModelTest {
 
     private val dispatcher = UnconfinedTestDispatcher()
