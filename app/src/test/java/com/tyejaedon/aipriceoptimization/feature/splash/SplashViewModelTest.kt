@@ -1,4 +1,4 @@
-package com.tyejaedon.aipriceoptimization.feature.splash
+﻿package com.tyejaedon.aipriceoptimization.feature.splash
 
 import com.tyejaedon.aipriceoptimization.core.common.AppResult
 import com.tyejaedon.aipriceoptimization.core.error.AppError
@@ -7,6 +7,7 @@ import com.tyejaedon.aipriceoptimization.domain.usecase.GetHealthStatusUseCase
 import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
@@ -16,6 +17,7 @@ import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 
+@OptIn(ExperimentalCoroutinesApi::class)
 class SplashViewModelTest {
 
     private val dispatcher = UnconfinedTestDispatcher()
