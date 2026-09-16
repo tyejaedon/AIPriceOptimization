@@ -25,3 +25,6 @@ keystore.properties
 gradle_build_log.txt
 .gradle-home/
 
+
+# Kotlin compiler session/build metadata
+.kotlin/
