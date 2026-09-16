@@ -17,6 +17,28 @@ Example: `feature/1-android-client-bootstrap`
 
 Never commit directly to `main`.
 
+## Branch protection on `main`
+
+`main` is protected. The live rule is mirrored in
+[`.github/branch-protection.json`](.github/branch-protection.json) so it can be
+reviewed and re-applied:
+
+- Pull request required before merging (stale reviews are dismissed).
+- Linear history required (squash or rebase merges only; merge commits are
+  disabled at the repository level).
+- Force pushes and branch deletion are blocked.
+- Conversation resolution required.
+- Rules are enforced for administrators as well.
+- Status checks must be up to date with `main` before merging; the
+  `build-and-test` context from `Android CI` is the required check.
+
+Re-apply the rule with:
+
+```powershell
+gh api -X PUT repos/<owner>/<repo>/branches/main/protection `
+  --input .github/branch-protection.json
+```
+
 ## Pull requests
 
 - Open as a **draft** first.
