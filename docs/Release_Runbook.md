@@ -3,8 +3,11 @@
 ## Toolchain
 
 - Android Studio: latest stable channel compatible with AGP `9.4.0`.
-- JDK: 11 (see `compileOptions` in `app/build.gradle.kts`); Gradle daemon
-  itself runs on the JDK resolved by the Foojay toolchain resolver plugin.
+- JDK: source/target compatibility is Java 11 (see `compileOptions` in
+  `app/build.gradle.kts`); the Gradle daemon itself runs on JDK 25, pinned by
+  `gradle/gradle-daemon-jvm.properties` and provisioned automatically by the
+  Gradle wrapper (no local JDK install required). CI uses
+  `actions/setup-java@v4` with `java-version: "25"` to match.
 - Kotlin: `2.2.10`
 - Gradle: wrapper-managed, see `gradle/wrapper/gradle-wrapper.properties`.
 - Compose BOM: `2026.02.01`

@@ -21,7 +21,8 @@ or Firestore access has been implemented yet — see the phased plan in
 ## Requirements
 
 - Android Studio (current stable channel compatible with AGP `9.4.0`)
-- JDK 11
+- JDK 25 (see `gradle/gradle-daemon-jvm.properties`; the Gradle wrapper
+  provisions this toolchain automatically via `./gradlew`)
 - Kotlin `2.2.10` (managed by the Gradle plugin, no local installation needed)
 
 ## Getting started
@@ -72,4 +73,18 @@ app/src/main/java/com/tyejaedon/aipriceoptimization/
 | `docs/Firestore_Client_Access.md` | Firestore ownership & security rules direction    |
 | `docs/Release_Runbook.md`         | Build variants, Firebase setup, release checklist |
 | `.github/copilot-instructions.md` | Coding-agent operating rules for this repo        |
+
+## Repository governance
+
+- `main` is the default branch and is protected: pull requests are
+  required, `Android CI / build-and-test` must pass, linear history is
+  enforced (squash/rebase merges only), and force pushes/deletions are
+  blocked — including for administrators. The live rule is mirrored in
+  [`.github/branch-protection.json`](.github/branch-protection.json).
+- Secret scanning and push protection, and Dependabot security updates are
+  enabled at the repository level.
+- Work is tracked with milestones `Phase 1` through `Phase 7` (see
+  `docs/Mobile_Blueprint.md`, section 9) and `phase-*` issue labels.
+- See `CONTRIBUTING.md` for the branch-naming and PR conventions every
+  change must follow.
 
