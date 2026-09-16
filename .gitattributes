@@ -1,0 +1,16 @@
+* text=auto eol=lf
+
+# Windows-only scripts
+*.bat text eol=crlf
+
+# Keep the Gradle wrapper script POSIX-compatible for CI runners
+gradlew text eol=lf
+
+# Binary assets
+*.jar binary
+*.webp binary
+*.png binary
+*.jpg binary
+*.keystore binary
+*.jks binary
+

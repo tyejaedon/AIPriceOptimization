@@ -1,0 +1,62 @@
+// STARTING POINT ONLY — NOT PRODUCTION-READY.
+// Validate with the Firebase Emulator Suite before every deploy.
+// See docs/Firestore_Client_Access.md for the full ownership matrix.
+
+rules_version = '2';
+
+service cloud.firestore {
+
+
+    match /mentors/{mentorId} {
+      allow read, update: if request.auth != null
+        && request.auth.uid == mentorId;
+
+      allow create: if request.auth != null
+        && request.auth.uid == mentorId;
+
+      match /quote_history/{quoteId} {
+        allow read: if request.auth != null
+          && request.auth.uid == mentorId;
+
+        // Official quote history is written server-side only.
+        allow write: if false;
+      }
+
+      match /drafts/{draftId} {
+        allow read, write: if request.auth != null
+          && request.auth.uid == mentorId;
+      }
+
+      match /preferences/{preferenceId} {
+        allow read, write: if request.auth != null
+          && request.auth.uid == mentorId;
+      }
+    }
+
+    match /industry_partitions/{industryId} {
+      allow read: if request.auth != null;
+      allow write: if false;
+    }
+
+    match /macro_indices/{countryCode} {
+      allow read: if request.auth != null;
+      allow write: if false;
+    }
+
+    match /mpesa_tariffs/{tariffId} {
+      allow read: if request.auth != null;
+      allow write: if false;
+    }
+
+    match /historical_transactions/{transactionId} {
+      allow read, write: if false;
+    }
+
+    match /service_listings/{listingId} {
+      allow read: if false;
+      allow write: if false;
+    }
+  }
+}
+
+

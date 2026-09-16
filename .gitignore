@@ -1,0 +1,27 @@
+*.iml
+.gradle
+/local.properties
+.idea/
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+
+# Firebase - environment-specific, never commit real credentials
+app/google-services.json
+*serviceAccountKey*.json
+firebase-debug.log
+firestore-debug.log
+ui-debug.log
+
+# Signing
+*.jks
+*.keystore
+keystore.properties
+
+# Ad-hoc local build logs/temp gradle homes created during troubleshooting
+gradle_build_log.txt
+.gradle-home/
+

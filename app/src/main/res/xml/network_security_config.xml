@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <!--
+      Cleartext traffic is restricted to the Android Emulator's host-loopback
+      address (10.0.2.2), used only by the "dev" build flavor to reach a
+      locally running FastAPI instance (see docs/Release_Runbook.md).
+      Staging and production must remain HTTPS-only; do not add cleartext
+      domains here for those flavors.
+    -->
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="false">10.0.2.2</domain>
+    </domain-config>
+    <base-config cleartextTrafficPermitted="false" />
+</network-security-config>
+
